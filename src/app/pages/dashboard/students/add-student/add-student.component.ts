@@ -24,14 +24,20 @@ export class AddStudentComponent {
 
   async addStudent(form: NgForm) {
     if (form.invalid) return;
+    // Convertir los valores a mayúsculas antes de enviarlos a la base de datos
+    const student = {
+      ...this.student,
+      name: this.student.name.toUpperCase(),
+      last_name: this.student.last_name.toUpperCase(),
+      address: this.student.address.toUpperCase(),
+      birth_date: this.student.birth_date ? new Date(this.student.birth_date) : null
+    };
+
     this.loading = true;
     this.error = null;
     this.success = null;
     try {
-      const { error } = await this.supabase.addStudent({
-        ...this.student,
-        birth_date: this.student.birth_date ? new Date(this.student.birth_date) : null
-      });
+      const { error } = await this.supabase.addStudent(student);
       if (error) {
         this.error = error.message || 'Error al guardar el estudiante';
       } else {
