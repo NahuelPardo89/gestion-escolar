@@ -35,12 +35,12 @@
   </div>
 </section>
 <div *ngIf="showModal" class="modal-overlay">
-  <div class="modal">
-    <h3>Confirmar Desactivación</h3>
-    <p>¿Estás seguro de que deseas desactivar el plan de estudio <strong>{{ studyPlanToDelete?.name }}</strong>?</p>
+  <div class="modal-content">
+    <h3 class="modal-title">¿Borrar plan de estudio?</h3>
+    <p>¿Seguro que deseas borrar el plan de estudio <b>{{ studyPlanToDelete?.name }}</b>?</p>
     <div class="modal-actions">
-      <button class="btn-dark" (click)="deleteStudyPlan()">Confirmar</button>
-      <button class="btn-light" (click)="cancelDelete()">Cancelar</button>
+      <button class="btn-dark cancel-button" (click)="cancelDelete()">Cancelar</button>
+      <button class="btn-dark confirm-button" (click)="deleteStudyPlan()">Borrar</button>
     </div>
   </div>
 </div>
