@@ -1,1 +1,148 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Tema oscuro global para la app
+body {
+  background: #181a20;
+  color: #f1f1f1;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.navbar {
+  background: #23272f;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 2rem;
+  box-shadow: 0 2px 8px #0003;
+}
+.navbar a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.navbar a.active, .navbar a:hover {
+  background: #313543;
+  color: #00e0d3;
+}
+
+main {
+  padding: 2rem;
+  min-height: 80vh;
+}
+
+section {
+  background: #23272f;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px #0005;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 500px;
+}
+
+h1, h2 {
+  color: #00e0d3;
+}
+
+button, .btn-dark {
+  background: #00e0d3;
+  color: #181a20;
+  border: none;
+  border-radius: 4px;
+  padding: 0.7rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+button:hover, .btn-dark:hover {
+  background: #00bfae;
+}
+
+input, select, textarea {
+  background: #181a20;
+  color: #f1f1f1;
+  border: 1px solid #313543;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #00e0d3;
+}
+
+.error-msg {
+  color: #ff6b6b;
+  font-size: 0.95em;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.dashboard-nav a {
+  color: #f1f1f1;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background: #23272f;
+  transition: background 0.2s;
+}
+.dashboard-nav a.active, .dashboard-nav a:hover {
+  background: #00e0d3;
+  color: #181a20;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    align-items: flex-start;
+  }
+  .navbar a, .navbar .user-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 0.5rem;
+    font-size: 1.1rem;
+  }
+  main {
+    padding: 1rem;
+  }
+  section {
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 98vw;
+  }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+.logout-btn {
+  background: none;
+  border: none;
+  color: #00e0d3;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.logout-btn:hover {
+  color: #ff6b6b;
+}

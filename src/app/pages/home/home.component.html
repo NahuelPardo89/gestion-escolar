@@ -1,0 +1,29 @@
+<section class="home-section">
+  <div class="logo-container">
+    <img src="assets/logo-ceija.png" alt="Logo CEIJA" class="school-logo">
+  </div>
+  <h1 class="main-title">Bienvenidos al CEIJA N°12</h1>
+  <h2 class="subtitle">Remedios Escalada de San Martín - Río Cuarto</h2>
+  <p class="slogan">Educación con Compromiso</p>
+
+  <section class="ofertas-section">
+    <h2>Ofertas Educativas</h2>
+    <div class="slider">
+      <button class="slider-btn left" (click)="prevOferta()" aria-label="Anterior">
+        <span class="material-icons">chevron_left</span>
+      </button>
+      <div class="slider-content">
+        <div *ngFor="let oferta of ofertas; let i = index" [class.active]="i === ofertaActual">
+          <h3 class="oferta-title">{{ oferta.titulo }}</h3>
+          <p class="oferta-desc">{{ oferta.descripcion }}</p>
+        </div>
+      </div>
+      <button class="slider-btn right" (click)="nextOferta()" aria-label="Siguiente">
+        <span class="material-icons">chevron_right</span>
+      </button>
+    </div>
+    <div class="slider-indicators">
+      <span *ngFor="let oferta of ofertas; let i = index" [class.active]="i === ofertaActual" (click)="goToOferta(i)"></span>
+    </div>
+  </section>
+</section>

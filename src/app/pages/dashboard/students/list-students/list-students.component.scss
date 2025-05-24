@@ -1,0 +1,88 @@
+.list-students-section {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.list-students-title {
+  width: 100vw;
+}
+
+.list-students-table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.list-students-table {
+  width: 100%;
+  margin-top: 1rem;
+  background: #23272f;
+  border-radius: 8px;
+  max-width: 100%;
+  overflow-x: auto;
+  text-align: center; // Centering content in the table
+}
+
+.list-students-header-row {
+  background: #181a20;
+  color: #00e0d3;
+}
+
+.edit-button {
+  padding: 0.3rem 0.7rem;
+  margin-right: 0.3rem;
+}
+
+.delete-button {
+  padding: 0.3rem 0.7rem;
+  background: #ff6b6b;
+  color: #fff;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #23272f;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px #0008;
+  max-width: 90vw;
+}
+
+.modal-title {
+  color: #ff6b6b;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.cancel-button {
+  background: #313543;
+  color: #fff;
+}
+
+.confirm-button {
+  background: #ff6b6b;
+  color: #fff;
+}
+
+// Centering content for table cells
+td, th {
+  text-align: center;
+  vertical-align: middle;
+}

@@ -1,0 +1,20 @@
+<p>login works!</p>
+<section class="login-section">
+  <form class="form-dark login-form" (ngSubmit)="login()" #loginForm="ngForm" novalidate>
+    <h2>Iniciar sesión</h2>
+    <label>Email</label>
+    <input type="email" [(ngModel)]="email" name="email" required email #emailInput="ngModel" autocomplete="username">
+    <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="error-msg">
+      <span *ngIf="emailInput.errors?.['required']">El email es obligatorio.</span>
+      <span *ngIf="emailInput.errors?.['email']">Formato de email inválido.</span>
+    </div>
+    <label>Contraseña</label>
+    <input type="password" [(ngModel)]="password" name="password" required minlength="6" #passwordInput="ngModel" autocomplete="current-password">
+    <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-msg">
+      <span *ngIf="passwordInput.errors?.['required']">La contraseña es obligatoria.</span>
+      <span *ngIf="passwordInput.errors?.['minlength']">Mínimo 6 caracteres.</span>
+    </div>
+    <button class="btn-dark" type="submit" [disabled]="loading || loginForm.invalid">Entrar</button>
+    <div *ngIf="error" class="error-msg">{{ error }}</div>
+  </form>
+</section>

@@ -1,0 +1,14 @@
+<p>students works!</p>
+<section class="students-section">
+  <nav class="students-nav">
+    <button class="btn-dark" [routerLink]="['/dashboard/students/add']" routerLinkActive="active">
+      <span class="material-icons">person_add</span> Agregar Estudiante
+    </button>
+    <button class="btn-dark" routerLink="list" routerLinkActive="active">
+      <span class="material-icons">list</span> Listar Estudiantes
+    </button>
+  </nav>
+  <div class="students-content">
+    <router-outlet></router-outlet>
+  </div>
+</section>

@@ -1,0 +1,58 @@
+<section class="list-students-section">
+  <h2 class="list-students-title">Listado de Estudiantes</h2>
+  <div *ngIf="error" class="error-msg">{{ error }}</div>
+  <div *ngIf="loading">Cargando...</div>
+  <div class="filter-container">
+    <input type="text" placeholder="Buscar estudiante..." [(ngModel)]="searchTerm" (input)="filterStudents()" />
+  </div>
+  <div class="pagination-container">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+  </div>
+  <div class="list-students-table-wrapper">
+    <table *ngIf="students.length && !loading" class="list-students-table">
+      <thead>
+        <tr class="list-students-header-row">
+          <th (click)="sortTable('name')">Nombre</th>
+          <th (click)="sortTable('lastName')">Apellido</th>
+          <th (click)="sortTable('dni')">DNI</th>
+          <th (click)="sortTable('birthDate')">Fecha Nac.</th>
+          <th (click)="sortTable('phone')">Teléfono</th>
+          <th (click)="sortTable('address')">Dirección</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of paginatedStudents">
+          <td>{{ student.name }}</td>
+          <td>{{ student.lastName }}</td>
+          <td>{{ student.dni }}</td>
+          <td>{{ student.birthDate | date:'dd/MM/yyyy' }}</td>
+          <td>{{ student.phone }}</td>
+          <td>{{ student.address }}</td>
+          <td>
+            <button class="btn-dark edit-button" title="Editar" (click)="editStudent(student)">
+              <span class="material-icons">edit</span>
+            </button>
+            <button class="btn-dark delete-button" (click)="confirmDelete(student)" title="Borrar">
+              <span class="material-icons">delete</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal de confirmación -->
+  <div *ngIf="showModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3 class="modal-title">¿Borrar estudiante?</h3>
+      <p>¿Seguro que deseas borrar a <b>{{ studentToDelete?.name }} {{ studentToDelete?.lastName }}</b>?</p>
+      <div class="modal-actions">
+        <button class="btn-dark cancel-button" (click)="cancelDelete()">Cancelar</button>
+        <button class="btn-dark confirm-button" (click)="deleteStudent()">Borrar</button>
+      </div>
+    </div>
+  </div>
+</section>

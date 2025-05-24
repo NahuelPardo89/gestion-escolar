@@ -1,16 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { StudentsComponent } from './pages/dashboard/students/students.component';
+import { GradesComponent } from './pages/dashboard/grades/grades.component';
+import { StudyPlansComponent } from './pages/dashboard/study-plans/study-plans.component';
+import { AddStudentComponent } from './pages/dashboard/students/add-student/add-student.component';
+import { ListStudentsComponent } from './pages/dashboard/students/list-students/list-students.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    HomeComponent,
+    LoginComponent,
+    StudentsComponent,
+    GradesComponent,
+    StudyPlansComponent,
+    AddStudentComponent,
+    ListStudentsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

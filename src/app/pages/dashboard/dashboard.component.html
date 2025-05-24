@@ -1,0 +1,15 @@
+<p>dashboard works!</p>
+<nav class="dashboard-nav">
+  <a routerLink="students" routerLinkActive="active">
+    <span class="material-icons">group</span> Alumnos
+  </a>
+  <a routerLink="grades" routerLinkActive="active">
+    <span class="material-icons">grade</span> Calificaciones
+  </a>
+  <a routerLink="study-plans" routerLinkActive="active">
+    <span class="material-icons">menu_book</span> Planes de Estudio
+  </a>
+</nav>
+<section class="dashboard-content">
+  <router-outlet></router-outlet>
+</section>
