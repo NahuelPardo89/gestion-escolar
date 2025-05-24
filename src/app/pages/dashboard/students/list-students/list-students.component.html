@@ -7,8 +7,9 @@
   </div>
   
   <div class="list-students-table-wrapper">
-    <div *ngIf="loading" class="loading-spinner">
-    <span class="material-icons spinner-icon">autorenew</span>
+    
+  <div *ngIf="loading" class="spinner-overlay">
+    <div class="spinner"></div>
   </div>
     <table *ngIf="students.length && !loading" class="list-students-table">
       <thead>

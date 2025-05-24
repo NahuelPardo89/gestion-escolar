@@ -1,7 +1,9 @@
 <section class="list-study-plans-section">
   <h2 class="list-study-plans-title">Listado de Planes de Estudio</h2>
   <div *ngIf="error" class="error-msg">{{ error }}</div>
-  <div *ngIf="loading">Cargando...</div>
+  <div *ngIf="loading" class="spinner-overlay">
+    <div class="spinner"></div>
+  </div>
   <div class="list-study-plans-table-wrapper">
     <table *ngIf="studyPlans.length && !loading" class="list-study-plans-table">
       <thead>
