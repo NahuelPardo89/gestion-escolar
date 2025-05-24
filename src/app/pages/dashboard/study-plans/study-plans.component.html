@@ -1,1 +1,13 @@
-<p>study-plans works!</p>
+<section class="students-section">
+  <nav class="students-nav">
+    <button class="btn-dark" [routerLink]="['/dashboard/study-plans/add-study-plan']" routerLinkActive="active">
+      <span class="material-icons">menu_book</span> Agregar Plan de Estudio
+    </button>
+    <button class="btn-dark" routerLink="list-study-plans" routerLinkActive="active">
+      <span class="material-icons">list</span> Listar Planes de Estudio
+    </button>
+  </nav>
+  <div class="students-content">
+    <router-outlet></router-outlet>
+  </div>
+</section>

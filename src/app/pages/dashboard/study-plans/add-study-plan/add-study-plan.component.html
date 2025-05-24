@@ -1,0 +1,28 @@
+<section>
+  <form #studyPlanForm="ngForm" (ngSubmit)="addStudyPlan(studyPlanForm)" novalidate>
+    <h2>Agregar Plan de Estudio</h2>
+    <label>Nombre</label>
+    <input type="text" name="name" [(ngModel)]="studyPlan.name" required #nameInput="ngModel">
+    <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error-msg">
+      El nombre es obligatorio.
+    </div>
+    <label>Resolución</label>
+    <input type="text" name="resolution" [(ngModel)]="studyPlan.resolution" required #resolutionInput="ngModel">
+    <div *ngIf="resolutionInput.invalid && (resolutionInput.dirty || resolutionInput.touched)" class="error-msg">
+      La resolución es obligatoria.
+    </div>
+    <label>Validez Nacional</label>
+    <input type="text" name="national_validity" [(ngModel)]="studyPlan.national_validity" required #validityInput="ngModel">
+    <div *ngIf="validityInput.invalid && (validityInput.dirty || validityInput.touched)" class="error-msg">
+      La validez nacional es obligatoria.
+    </div>
+    <label>Orientación</label>
+    <input type="text" name="orientation" [(ngModel)]="studyPlan.orientation" required #orientationInput="ngModel">
+    <div *ngIf="orientationInput.invalid && (orientationInput.dirty || orientationInput.touched)" class="error-msg">
+      La orientación es obligatoria.
+    </div>
+    <button class="btn-dark" type="submit" [disabled]="loading || studyPlanForm.invalid">Agregar</button>
+    <div *ngIf="error" class="error-msg">{{ error }}</div>
+    <div *ngIf="success" class="success-message">{{ success }}</div>
+  </form>
+</section>

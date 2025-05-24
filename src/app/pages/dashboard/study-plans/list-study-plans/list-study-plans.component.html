@@ -1,0 +1,44 @@
+<section class="list-study-plans-section">
+  <h2 class="list-study-plans-title">Listado de Planes de Estudio</h2>
+  <div *ngIf="error" class="error-msg">{{ error }}</div>
+  <div *ngIf="loading">Cargando...</div>
+  <div class="list-study-plans-table-wrapper">
+    <table *ngIf="studyPlans.length && !loading" class="list-study-plans-table">
+      <thead>
+        <tr class="list-study-plans-header-row">
+          <th (click)="sortTable('name')">Nombre</th>
+          <th (click)="sortTable('resolution')">Resolución</th>
+          <th (click)="sortTable('national_validity')">Validez Nacional</th>
+          <th (click)="sortTable('orientation')">Orientación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plan of paginatedStudyPlans">
+          <td>{{ plan.name }}</td>
+          <td>{{ plan.resolution }}</td>
+          <td>{{ plan.national_validity }}</td>
+          <td>{{ plan.orientation }}</td>
+          <td>
+            <button class="btn-dark edit-button" title="Editar" (click)="editStudyPlan(plan)">
+              <span class="material-icons">edit</span>
+            </button>
+            <button class="btn-dark delete-button" (click)="confirmDelete(plan)" title="Desactivar">
+              <span class="material-icons">delete</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<div *ngIf="showModal" class="modal-overlay">
+  <div class="modal">
+    <h3>Confirmar Desactivación</h3>
+    <p>¿Estás seguro de que deseas desactivar el plan de estudio <strong>{{ studyPlanToDelete?.name }}</strong>?</p>
+    <div class="modal-actions">
+      <button class="btn-dark" (click)="deleteStudyPlan()">Confirmar</button>
+      <button class="btn-light" (click)="cancelDelete()">Cancelar</button>
+    </div>
+  </div>
+</div>

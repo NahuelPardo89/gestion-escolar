@@ -9,6 +9,8 @@ import { StudyPlansComponent } from './pages/dashboard/study-plans/study-plans.c
 import { AuthGuard } from './guards/auth.guard';
 import { AddStudentComponent } from './pages/dashboard/students/add-student/add-student.component';
 import { ListStudentsComponent } from './pages/dashboard/students/list-students/list-students.component';
+import { AddStudyPlanComponent } from './pages/dashboard/study-plans/add-study-plan/add-study-plan.component';
+import { ListStudyPlansComponent } from './pages/dashboard/study-plans/list-study-plans/list-study-plans.component';
 
 export const routes: Route[] = [
   { path: '', component: HomeComponent },
@@ -19,7 +21,10 @@ export const routes: Route[] = [
       { path: 'list', component: ListStudentsComponent }
     ]},
     { path: 'grades', component: GradesComponent },
-    { path: 'study-plans', component: StudyPlansComponent },
+    { path: 'study-plans', component: StudyPlansComponent, children: [
+      { path: 'add-study-plan', component: AddStudyPlanComponent },
+      { path: 'list-study-plans', component: ListStudyPlansComponent },
+    ]},
     { path: '', redirectTo: 'students', pathMatch: 'full' }
   ]},
   { path: '**', redirectTo: '' }

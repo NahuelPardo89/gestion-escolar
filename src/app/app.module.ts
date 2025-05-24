@@ -11,6 +11,8 @@ import { GradesComponent } from './pages/dashboard/grades/grades.component';
 import { StudyPlansComponent } from './pages/dashboard/study-plans/study-plans.component';
 import { AddStudentComponent } from './pages/dashboard/students/add-student/add-student.component';
 import { ListStudentsComponent } from './pages/dashboard/students/list-students/list-students.component';
+import { AddStudyPlanComponent } from './pages/dashboard/study-plans/add-study-plan/add-study-plan.component';
+import { ListStudyPlansComponent } from './pages/dashboard/study-plans/list-study-plans/list-study-plans.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ListStudentsComponent } from './pages/dashboard/students/list-students/
     GradesComponent,
     StudyPlansComponent,
     AddStudentComponent,
-    ListStudentsComponent
+    ListStudentsComponent,
+    AddStudyPlanComponent,
+    ListStudyPlansComponent
   ],
   imports: [
     BrowserModule,
