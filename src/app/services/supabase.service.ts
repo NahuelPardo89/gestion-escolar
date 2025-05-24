@@ -29,8 +29,9 @@ export class SupabaseService {
   }
 
   async getStudents(): Promise<any> {
-    // Forzar refresco de datos y evitar cache
-    return this.supabase.from('students').select('*').order('creado_en', { ascending: false });
+    const response = await this.supabase.from('students').select('*').order('creado_en', { ascending: false });
+    console.log('Supabase getStudents response:', response);
+    return response;
   }
 
   async deleteStudent(id: string): Promise<any> {

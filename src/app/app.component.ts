@@ -14,15 +14,13 @@ export class AppComponent implements OnInit {
 
   constructor(private supabase: SupabaseService, private router: Router) {}
 
-  async ngOnInit() {
-    await this.checkUser();
-    // Suscribirse a cambios de navegación para refrescar usuario
+  ngOnInit() {
     this.router.events.subscribe(() => {
-      this.checkUser();
+      this.refreshUser();
     });
   }
 
-  async checkUser() {
+  async refreshUser() {
     this.loading = true;
     try {
       const { data } = await this.supabase.getUserPromise();

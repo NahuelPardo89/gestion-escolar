@@ -14,7 +14,6 @@ export class ListStudentsComponent implements OnInit {
   showModal = false;
   studentToDelete: Student | null = null;
 
-  // Pagination and sorting properties
   searchTerm = '';
   currentPage = 1;
   itemsPerPage = 15;
@@ -24,7 +23,7 @@ export class ListStudentsComponent implements OnInit {
   constructor(private supabase: SupabaseService) {}
 
   ngOnInit() {
-    setTimeout(() => this.getStudents(), 500); // Espera por si la inserción es asíncrona
+    setTimeout(() => this.getStudents(), 500);
   }
 
   async getStudents() {
@@ -32,8 +31,6 @@ export class ListStudentsComponent implements OnInit {
     this.error = null;
     try {
       const response = await this.supabase.getStudents();
-      // Debug: mostrar la respuesta de supabase
-      console.log('Supabase getStudents response:', response);
       const { data, error } = response;
       if (error) {
         this.error = error.message || 'Error al obtener estudiantes';
@@ -42,9 +39,9 @@ export class ListStudentsComponent implements OnInit {
           ? data.map(student => ({
               id: student.id,
               name: student.name,
-              lastName: student.last_name, // Map database field to interface field
+              lastName: student.last_name,
               dni: student.dni,
-              birthDate: student.birth_date, // Map database field to interface field
+              birthDate: student.birth_date,
               phone: student.phone,
               address: student.address,
             }))
@@ -52,7 +49,7 @@ export class ListStudentsComponent implements OnInit {
         if (!this.students.length) {
           this.error = 'No hay estudiantes registrados.';
         }
-        this.updatePagination(); // Actualiza la paginación al obtener estudiantes
+        this.updatePagination();
       }
     } catch (err: any) {
       this.error = err.message || 'Error inesperado';
@@ -61,7 +58,6 @@ export class ListStudentsComponent implements OnInit {
     }
   }
 
-  // Filter, pagination, and sorting methods
   filterStudents() {
     const filtered = this.students.filter(student =>
       Object.values(student).some(value =>
@@ -92,7 +88,6 @@ export class ListStudentsComponent implements OnInit {
     }
   }
 
-  // Adjusted column order to display 'Apellido' before 'Nombre' and added sorting functionality for 'Apellido'.
   sortTable(column: keyof Student) {
     this.students.sort((a, b) => {
       const valueA = a[column]?.toString().toLowerCase() || '';

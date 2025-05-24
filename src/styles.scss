@@ -146,3 +146,19 @@ input:focus, select:focus, textarea:focus {
 .logout-btn:hover {
   color: #ff6b6b;
 }
+
+/* Estilos para el spinner de carga */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.spinner-icon {
+  font-size: 48px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,12 +1,15 @@
 <section class="list-students-section">
   <h2 class="list-students-title">Listado de Estudiantes</h2>
   <div *ngIf="error" class="error-msg">{{ error }}</div>
-  <div *ngIf="loading">Cargando...</div>
+  
   <div class="filter-container">
     <input type="text" placeholder="Buscar estudiante..." [(ngModel)]="searchTerm" (input)="filterStudents()" />
   </div>
   
   <div class="list-students-table-wrapper">
+    <div *ngIf="loading" class="loading-spinner">
+    <span class="material-icons spinner-icon">autorenew</span>
+  </div>
     <table *ngIf="students.length && !loading" class="list-students-table">
       <thead>
         <tr class="list-students-header-row">
@@ -60,4 +63,21 @@
       </div>
     </div>
   </div>
+
+  <style>
+    .loading-spinner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .spinner-icon {
+      font-size: 48px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </section>
