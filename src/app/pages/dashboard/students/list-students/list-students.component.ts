@@ -17,7 +17,7 @@ export class ListStudentsComponent implements OnInit {
   // Pagination and sorting properties
   searchTerm = '';
   currentPage = 1;
-  itemsPerPage = 5;
+  itemsPerPage = 15;
   totalPages = 1;
   paginatedStudents: Student[] = [];
 
@@ -92,10 +92,11 @@ export class ListStudentsComponent implements OnInit {
     }
   }
 
+  // Adjusted column order to display 'Apellido' before 'Nombre' and added sorting functionality for 'Apellido'.
   sortTable(column: keyof Student) {
     this.students.sort((a, b) => {
-      const valueA = a[column] || '';
-      const valueB = b[column] || '';
+      const valueA = a[column]?.toString().toLowerCase() || '';
+      const valueB = b[column]?.toString().toLowerCase() || '';
       if (valueA < valueB) return -1;
       if (valueA > valueB) return 1;
       return 0;

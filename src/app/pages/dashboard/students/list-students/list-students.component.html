@@ -5,17 +5,13 @@
   <div class="filter-container">
     <input type="text" placeholder="Buscar estudiante..." [(ngModel)]="searchTerm" (input)="filterStudents()" />
   </div>
-  <div class="pagination-container">
-    <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
-    <span>Página {{ currentPage }} de {{ totalPages }}</span>
-    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
-  </div>
+  
   <div class="list-students-table-wrapper">
     <table *ngIf="students.length && !loading" class="list-students-table">
       <thead>
         <tr class="list-students-header-row">
-          <th (click)="sortTable('name')">Nombre</th>
           <th (click)="sortTable('lastName')">Apellido</th>
+          <th (click)="sortTable('name')">Nombre</th>
           <th (click)="sortTable('dni')">DNI</th>
           <th (click)="sortTable('birthDate')">Fecha Nac.</th>
           <th (click)="sortTable('phone')">Teléfono</th>
@@ -25,8 +21,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let student of paginatedStudents">
-          <td>{{ student.name }}</td>
           <td>{{ student.lastName }}</td>
+          <td>{{ student.name }}</td>
           <td>{{ student.dni }}</td>
           <td>{{ student.birthDate | date:'dd/MM/yyyy' }}</td>
           <td>{{ student.phone }}</td>
@@ -42,6 +38,15 @@
         </tr>
       </tbody>
     </table>
+    <div class="pagination-container">
+    <button (click)="previousPage()" [disabled]="currentPage === 1" title="Anterior">
+      <span class="material-icons">arrow_back</span>
+    </button>
+    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages" title="Siguiente">
+      <span class="material-icons">arrow_forward</span>
+    </button>
+  </div>
   </div>
 
   <!-- Modal de confirmación -->
