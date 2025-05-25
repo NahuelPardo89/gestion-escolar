@@ -11,6 +11,8 @@ import { AddStudentComponent } from './pages/dashboard/students/add-student/add-
 import { ListStudentsComponent } from './pages/dashboard/students/list-students/list-students.component';
 import { AddStudyPlanComponent } from './pages/dashboard/study-plans/add-study-plan/add-study-plan.component';
 import { ListStudyPlansComponent } from './pages/dashboard/study-plans/list-study-plans/list-study-plans.component';
+import { AddSubjectComponent } from './pages/dashboard/study-plans/add-subject/add-subject.component';
+import { ListSubjectsComponent } from './pages/dashboard/study-plans/list-subjects/list-subjects.component';
 
 export const routes: Route[] = [
   { path: '', component: HomeComponent },
@@ -24,6 +26,8 @@ export const routes: Route[] = [
     { path: 'study-plans', component: StudyPlansComponent, children: [
       { path: 'add-study-plan', component: AddStudyPlanComponent },
       { path: 'list-study-plans', component: ListStudyPlansComponent },
+      { path: 'add-subject', component: AddSubjectComponent },
+      { path: 'list-subjects', component: ListSubjectsComponent }
     ]},
     { path: '', redirectTo: 'students', pathMatch: 'full' }
   ]},

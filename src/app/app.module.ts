@@ -13,6 +13,8 @@ import { AddStudentComponent } from './pages/dashboard/students/add-student/add-
 import { ListStudentsComponent } from './pages/dashboard/students/list-students/list-students.component';
 import { AddStudyPlanComponent } from './pages/dashboard/study-plans/add-study-plan/add-study-plan.component';
 import { ListStudyPlansComponent } from './pages/dashboard/study-plans/list-study-plans/list-study-plans.component';
+import { AddSubjectComponent } from './pages/dashboard/study-plans/add-subject/add-subject.component';
+import { ListSubjectsComponent } from './pages/dashboard/study-plans/list-subjects/list-subjects.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ListStudyPlansComponent } from './pages/dashboard/study-plans/list-stud
     AddStudentComponent,
     ListStudentsComponent,
     AddStudyPlanComponent,
-    ListStudyPlansComponent
+    ListStudyPlansComponent,
+    AddSubjectComponent,
+    ListSubjectsComponent
   ],
   imports: [
     BrowserModule,
