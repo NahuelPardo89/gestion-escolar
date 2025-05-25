@@ -1,13 +1,13 @@
-<section class="list-study-plans-section">
-  <h2 class="list-study-plans-title">Listado de Planes de Estudio</h2>
+<section class="section-base">
+  <h2 class="title-base">Listado de Planes de Estudio</h2>
   <div *ngIf="error" class="error-msg">{{ error }}</div>
-  <div *ngIf="loading" class="spinner-overlay">
-    <div class="spinner"></div>
-  </div>
-  <div class="list-study-plans-table-wrapper">
-    <table *ngIf="studyPlans.length && !loading" class="list-study-plans-table">
+  <div class="table-wrapper-base">
+    <div *ngIf="loading" class="spinner-overlay-base">
+      <div class="spinner-base"></div>
+    </div>
+    <table *ngIf="studyPlans.length && !loading" class="table-base">
       <thead>
-        <tr class="list-study-plans-header-row">
+        <tr class="table-header-base">
           <th (click)="sortTable('name')">Nombre</th>
           <th (click)="sortTable('resolution')">Resolución</th>
           <th (click)="sortTable('national_validity')">Validez Nacional</th>
@@ -22,10 +22,10 @@
           <td>{{ plan.national_validity }}</td>
           <td>{{ plan.orientation }}</td>
           <td>
-            <button class="btn-dark edit-button" title="Editar" (click)="editStudyPlan(plan)">
+            <button class="btn-dark edit-button-base" title="Editar" (click)="editStudyPlan(plan)">
               <span class="material-icons">edit</span>
             </button>
-            <button class="btn-dark delete-button" (click)="confirmDelete(plan)" title="Desactivar">
+            <button class="btn-dark delete-button-base" (click)="confirmDelete(plan)" title="Desactivar">
               <span class="material-icons">delete</span>
             </button>
           </td>
@@ -33,14 +33,14 @@
       </tbody>
     </table>
   </div>
-</section>
-<div *ngIf="showModal" class="modal-overlay">
-  <div class="modal-content">
-    <h3 class="modal-title">¿Borrar plan de estudio?</h3>
-    <p>¿Seguro que deseas borrar el plan de estudio <b>{{ studyPlanToDelete?.name }}</b>?</p>
-    <div class="modal-actions">
-      <button class="btn-dark cancel-button" (click)="cancelDelete()">Cancelar</button>
-      <button class="btn-dark confirm-button" (click)="deleteStudyPlan()">Borrar</button>
+  <div *ngIf="showModal" class="modal-overlay-base">
+    <div class="modal-content-base">
+      <h3 class="modal-title-base">¿Borrar plan de estudio?</h3>
+      <p>¿Seguro que deseas borrar el plan de estudio <b>{{ studyPlanToDelete?.name }}</b>?</p>
+      <div class="modal-actions-base">
+        <button class="btn-dark cancel-button-base" (click)="cancelDelete()">Cancelar</button>
+        <button class="btn-dark confirm-button-base" (click)="deleteStudyPlan()">Borrar</button>
+      </div>
     </div>
   </div>
-</div>
+</section>
